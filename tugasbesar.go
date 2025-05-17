@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 	"strings"
 	"time"
 )
@@ -60,24 +59,6 @@ func SequentialSearch(keyword string) []Proyek {
 		}
 	}
 	return hasil
-}
-
-func BinarySearchByNama(nama string) *Proyek {
-	sort.Slice(proyekList, func(i, j int) bool {
-		return proyekList[i].Nama < proyekList[j].Nama
-	})
-	low, high := 0, len(proyekList)-1
-	for low <= high {
-		mid := (low + high) / 2
-		if strings.EqualFold(proyekList[mid].Nama, nama) {
-			return &proyekList[mid]
-		} else if proyekList[mid].Nama < nama {
-			low = mid + 1
-		} else {
-			high = mid - 1
-		}
-	}
-	return nil
 }
 
 func SelectionSortByDeadline() {
